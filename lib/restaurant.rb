@@ -29,4 +29,13 @@ class Restaurant
       dish.upcase
     end
   end
+
+  def announce_closing_time(hours) 
+    if closing_time(hours).to_i < 12
+      "#{@name} will be closing at #{closing_time(hours)}AM"
+    else
+      time = (closing_time(hours).to_i - 12)
+      "#{@name} will be closing at #{time}:00PM"
+    end 
+  end
 end
