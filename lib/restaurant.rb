@@ -11,4 +11,8 @@ class Restaurant
     added_time = new_time += hours
     "#{added_time}:00"
   end
+
+  def add_dish(dish)
+    @dishes << dish
+  end
 end
