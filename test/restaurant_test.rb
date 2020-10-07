@@ -36,14 +36,27 @@ class RestaurantTest < Minitest::Test
     assert_equal '18:00', restaurant1.closing_time(8)
     assert_equal '23:00', restaurant2.closing_time(7)
   end
-
+  
   def test_it_can_add_dishes
     restaurant = Restaurant.new('16:00', 'Il Poggio')
-
+    
     restaurant.add_dish('Burrata')
     restaurant.add_dish('Pizzetta')
     restaurant.add_dish('Ravioli')
-
+    
     assert_equal ['Burrata', 'Pizzetta', 'Ravioli'], restaurant.dishes
   end
+
+  #Iteration 3 Tests:
+  # All restaurants are VERY excited about their dishes - 
+  # The method menu_dish_names will return a list of dish names, 
+  # IN ALL CAPS ('Breakfast Burrito' should become 'BREAKFAST BURRITO').
+  
+  def test_it_is_open_for_lunch
+    # A restaurant is open for lunch, if its opening time is before 12:00. 
+    restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
+    restaurant2 = Restaurant.new('16:00', 'Il Poggio')
+    assert_equal true, restaurant1.open_for_lunch?
+    assert_equal false,restaurant2.open_for_lunch?
+  end 
 end
